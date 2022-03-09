@@ -1,13 +1,11 @@
 import socket
-import random
-import os
-import requests
-import re
-import googlesearch
-import wolfram
-import github
-import string
-import sys
+class IRC:
+  def __init__(self, host, port, nick, channel):
+    self.socket = socket.socket()
+    self.socket.connect((host, port))
+    send()
+  def send(self, text):
+    self.socket.send(bytes(text))
 HOST = "irc.libera.chat"
 PORT = 6667
 NICK = "TechDude"
@@ -16,11 +14,7 @@ CHANNEL = "##techdudeserver"
 #CHANNEL = "##BlockySurvival"
 SERVER = ""
 readbuffer = ""
-def send(message):
-    s.send(message)
-    print(message)
-s = socket.socket()
-s.connect((HOST, PORT))
+
 send(bytes("NICK %s\r\n" % NICK, "UTF-8"))
 send(bytes("USER %s %s %s :%s\r\n" % (NICK, NICK, NICK, NICK), "UTF-8"))
 send(bytes("JOIN {}\r\n".format(CHANNEL), "UTF-8"))
